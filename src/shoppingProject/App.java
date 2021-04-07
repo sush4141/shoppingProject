@@ -100,15 +100,15 @@ public class App {
 				double totalPrice=0;
 				if(isLog) {
 				do {
-					System.out.println("Select Option: 1. Add Item 2. Make Bill 3.Goto Home Page");
+					System.out.println("Select Option: 1. Add Item 2. Make Bill");
 					int flag;
 					
 					do {
 						flag=sc.nextInt();
-						if(flag<1 || flag > 3)
+						if(flag<1 || flag > 2)
 							System.out.println("Invalid choice!");
 					
-				   }while(flag< 1 || flag > 3);
+				   }while(flag< 1 || flag > 2);
 					
 				switch(flag) {
 				
