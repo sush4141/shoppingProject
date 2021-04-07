@@ -8,6 +8,7 @@ public class App {
 	Scanner sc = new Scanner(System.in);
 	boolean isLog = false;
 	boolean isReg = false;
+	boolean flag2 = false;
 	String fname,lname,Username,Password,Email;
 	int Cid;
 	
@@ -153,10 +154,9 @@ public class App {
 					System.out.println("Total Bill: Rs."+totalPrice );
 					System.out.println();
 					break;
-						
+					
 				}
-				
-				
+					
 			}while(true);
 			}
 			else {
