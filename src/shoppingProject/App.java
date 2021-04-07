@@ -2,7 +2,7 @@ package shoppingProject;
 
 import java.util.*;
 
-public class App2 {
+public class App {
 
 	static int OId=0;
 	Scanner sc = new Scanner(System.in);
@@ -174,7 +174,7 @@ public class App2 {
 		
 	public static void main(String[] args) {
 		
-		App2 App = new App2();
+		App A1 = new App();
 		
 		Product Book = new Product("Book",500);
 		Product Pen = new Product("Pen",30);
@@ -195,7 +195,7 @@ public class App2 {
 		ProductList.add(Eraser);
 		ProductList.add(Pencil);
 		
-		App.Run(ProductList);
+		A1.Run(ProductList);
 		 	
 	}
 }	
