@@ -2,39 +2,22 @@ package shoppingProject;
 
 import java.util.*;
 
-public class App {
+public class App2 {
 
 	static int OId=0;
-		
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		boolean isLog = false;
-		String fname,lname,Username,Password,Email;
-		int Cid;
-		
-		ArrayList<Customer> Cust= new ArrayList<>();
-		List<Integer> Q = new ArrayList<>();
-		
-		Product Book = new Product("Book",500);
-		Product Pen = new Product("Pen",30);
-		Product Canvas = new Product("Canvas",400);
-		Product Notebook = new Product("Notebook",300);
-		Product Colour = new Product("WaterColour",450);
-		Product Ruler = new Product("Ruler",20);
-		Product Eraser = new Product("Eraser",10);
-		Product Pencil = new Product("Pencil",15);
-		
-		List<Product> ProductList = new ArrayList<Product>();
-		List<Product> OrderList = new ArrayList<Product>();
-		
-		ProductList.add(Book);
-		ProductList.add(Pen);
-		ProductList.add(Canvas);
-		ProductList.add(Notebook);
-		ProductList.add(Colour);
-		ProductList.add(Ruler);
-		ProductList.add(Eraser);
-		ProductList.add(Pencil);
+	Scanner sc = new Scanner(System.in);
+	boolean isLog = false;
+	boolean isReg = false;
+	String fname,lname,Username,Password,Email;
+	int Cid;
+	
+	ArrayList<Customer> Cust= new ArrayList<>();
+	List<Integer> Q = new ArrayList<>();
+	
+	List<Product> OrderList = new ArrayList<Product>();
+	
+	
+	public void Run(List<Product> ProductList){
 		
 		Iterator<Customer> itr = Cust.iterator();
 		System.out.println("_____________EKart____________");
@@ -76,6 +59,8 @@ public class App {
 				break;
 				
 			case 2:
+				
+				if(!Cust.isEmpty()) {
 				try {
 						System.out.println("Welcome to login page: ");
 						System.out.println("Enter Username: ");
@@ -94,7 +79,7 @@ public class App {
 							
 							break;
 						}
-						if(!isLog)
+						if(isLog == false)
 							System.out.println("User Dose not exist");
 						
 					}
@@ -104,20 +89,26 @@ public class App {
 					e.fillInStackTrace();
 				}
 				break;
-					
+				}
+				
+				else {
+					System.out.println("No user is registered in the system. Register first to login.");
+					break;
+				}
+				
 			case 3:
 				double totalPrice=0;
 				if(isLog) {
 				do {
-					System.out.println("Select Option: 1. Add Item 2. Make Bill");
+					System.out.println("Select Option: 1. Add Item 2. Make Bill 3.Goto Home Page");
 					int flag;
 					
 					do {
 						flag=sc.nextInt();
-						if(flag<1 || flag > 2)
+						if(flag<1 || flag > 3)
 							System.out.println("Invalid choice!");
 					
-				   }while(flag< 1 || flag > 2);
+				   }while(flag< 1 || flag > 3);
 					
 				switch(flag) {
 				
@@ -161,14 +152,16 @@ public class App {
 					}
 					System.out.println("Total Bill: Rs."+totalPrice );
 					System.out.println();
-					sc.close();
-					System.exit(0);
+					break;
 						
 				}
+				
+				
 			}while(true);
 			}
 			else {
 					System.out.println("Login First..!");
+					break;
 				}
 			
 			case 4:
@@ -176,6 +169,33 @@ public class App {
 				System.exit(0);
 			}
 			
-		}while(true); 	
+		}while(true);
+	}
+		
+	public static void main(String[] args) {
+		
+		App2 App = new App2();
+		
+		Product Book = new Product("Book",500);
+		Product Pen = new Product("Pen",30);
+		Product Canvas = new Product("Canvas",400);
+		Product Notebook = new Product("Notebook",300);
+		Product Colour = new Product("WaterColour",450);
+		Product Ruler = new Product("Ruler",20);
+		Product Eraser = new Product("Eraser",10);
+		Product Pencil = new Product("Pencil",15);
+		
+		List<Product> ProductList = new ArrayList<Product>();
+		ProductList.add(Book);
+		ProductList.add(Pen);
+		ProductList.add(Canvas);
+		ProductList.add(Notebook);
+		ProductList.add(Colour);
+		ProductList.add(Ruler);
+		ProductList.add(Eraser);
+		ProductList.add(Pencil);
+		
+		App.Run(ProductList);
+		 	
 	}
 }	
